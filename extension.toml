@@ -16,19 +16,19 @@ description = "This extension installs the appropriate nodejs runtime via dnf"
     id = "node"
     name = "Ubi Node Extension"
     stacks = ["io.buildpacks.stacks.ubi8"]
-    source = "paketocommunity/run-nodejs-20-ubi-base"
+    source = "costas001/run-nodejs-20-ubi-base"
     version = "20.1000"
 
   [[metadata.dependencies]]
     id = "node"
     name = "Ubi Node Extension"
     stacks = ["io.buildpacks.stacks.ubi8"]
-    source = "paketocommunity/run-nodejs-18-ubi-base"
+    source = "costas001/run-nodejs-18-ubi-base"
     version = "18.1000"
 
   [[metadata.dependencies]]
     id = "node"
     name = "Ubi Node Extension"
     stacks = ["io.buildpacks.stacks.ubi8"]
-    source = "paketocommunity/run-nodejs-16-ubi-base"
+    source = "costas001/run-nodejs-16-ubi-base"
     version = "16.1000"
