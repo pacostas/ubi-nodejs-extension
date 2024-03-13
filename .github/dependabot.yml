@@ -2,6 +2,8 @@
 version: 2
 updates:
 - package-ecosystem: gomod
+  env:
+    GOPROXY: "https://proxy.golang.org"
   directory: "/"
   schedule:
     interval: daily
