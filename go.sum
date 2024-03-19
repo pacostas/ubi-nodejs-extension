@@ -2533,8 +2533,8 @@ github.com/otiai10/mint v1.3.1/go.mod h1:/yxELlJQ0ufhjUwhshSj+wFjZ78CnZ48/1wtmBH
 github.com/pact-foundation/pact-go v1.0.4/go.mod h1:uExwJY4kCzNPcHRj+hCR/HBbOOIwwtUjcrb0b5/5kLM=
 github.com/paketo-buildpacks/libnodejs v0.2.0 h1:y7G6BQIeeMUnIlzREiAipQlAcaXJ82VMPldkTTiv9o4=
 github.com/paketo-buildpacks/libnodejs v0.2.0/go.mod h1:JLs6tu5TD6la8p1IKo3UYO1C93/ywGesa74FpM82wPw=
-github.com/paketo-buildpacks/occam v0.18.1 h1:1ZiGinneUl/WU/4XL0I8p9xzTOAifIpijZLCAML5Bn8=
-github.com/paketo-buildpacks/occam v0.18.1/go.mod h1:JdIO5Yqfo6gSNFzjhU8gjktwPdSR1m2BVH87OJtpdsw=
+github.com/paketo-buildpacks/occam v0.18.2 h1:zhYzJ4uPXKoYt500SgK45XBjYMtjLC61MmNogmHAIa0=
+github.com/paketo-buildpacks/occam v0.18.2/go.mod h1:jvpmKHQdUUfO7HwKoRQXDep1WrZfrPqc/LcllMBZDlY=
 github.com/paketo-buildpacks/packit v1.3.1 h1:DJAfqsDadRllr/OPYDONxJEOHbYUMWE1NIPPArq4b7w=
 github.com/paketo-buildpacks/packit v1.3.1/go.mod h1:v0jVFr3GNcM9JDwwuIAzYNV4Le1L728uMSNhjUybXVA=
 github.com/paketo-buildpacks/packit/v2 v2.6.1/go.mod h1:iBArWOfC5xZQF01o+zwnVKS+/hUBuFG+O1jCvzqBujs=
