@@ -62,15 +62,17 @@ jobs:
     - name: Parse Configs
       id: parse_configs
       run: |
+        registries_filename="${{ env.REGISTRIES_FILENAME }}"
+
         push_to_dockerhub=true
         push_to_gcr=false
 
-        if [[ -f $REGISTRIES_FILENAME ]]; then
-          if jq 'has("dockerhub")' $REGISTRIES_FILENAME > /dev/null; then
-            push_to_dockerhub=$(jq '.dockerhub' $REGISTRIES_FILENAME)
+        if [[ -f $registries_filename ]]; then
+          if jq 'has("dockerhub")' $registries_filename > /dev/null; then
+            push_to_dockerhub=$(jq '.dockerhub' $registries_filename)
           fi
-          if jq 'has("GCR")' $REGISTRIES_FILENAME > /dev/null; then
-            push_to_gcr=$(jq '.GCR' $REGISTRIES_FILENAME)
+          if jq 'has("GCR")' $registries_filename > /dev/null; then
+            push_to_gcr=$(jq '.GCR' $registries_filename)
           fi
         fi
 
@@ -143,7 +145,7 @@ jobs:
       with:
         id: ${{ github.repository }}
         version: ${{ steps.event.outputs.tag_full }}
-        address: ${{ steps.push.outputs.image }}@${{ steps.push.outputs.digest }}
+        address: index.docker.io/${{ steps.push.outputs.image }}@${{ steps.push.outputs.digest }}
         token: ${{ secrets.PAKETO_BOT_GITHUB_TOKEN }}
 
   failure:
