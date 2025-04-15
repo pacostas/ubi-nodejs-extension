@@ -135,12 +135,17 @@ function util::tools::pack::install() {
 
     version="$(jq -r .pack "$(dirname "${BASH_SOURCE[0]}")/tools.json")"
 
-    tmp_location="/tmp/pack.tgz"
+    local pack_config_enable_experimental
+    if [ -f "$(dirname "${BASH_SOURCE[0]}")/../options.json" ]; then
+      pack_config_enable_experimental="$(jq -r .pack_config_enable_experimental "$(dirname "${BASH_SOURCE[0]}")/../options.json")"
+    else
+      pack_config_enable_experimental="false"
+    fi
+
     curl_args=(
       "--fail"
       "--silent"
       "--location"
-      "--output" "${tmp_location}"
     )
 
     if [[ "${token}" != "" ]]; then
@@ -153,12 +158,14 @@ function util::tools::pack::install() {
     arch=$(util::tools::arch --blank-amd64)
 
     curl "https://github.com/buildpacks/pack/releases/download/${version}/pack-${version}-${os}${arch:+-$arch}.tgz" \
-      "${curl_args[@]}"
-
-    tar xzf "${tmp_location}" -C "${dir}"
+      "${curl_args[@]}" | \
+        tar xzf - -C "${dir}"
     chmod +x "${dir}/pack"
 
-    rm "${tmp_location}"
+    if [[ "${pack_config_enable_experimental}" == "true" ]]; then
+      "${dir}"/pack config experimental true
+    fi
+
   else
     util::print::info "Using pack $("${dir}"/pack version)"
   fi
